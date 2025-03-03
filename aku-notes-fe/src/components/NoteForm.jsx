@@ -1,6 +1,9 @@
 import { useState } from "react";
 const API_URL = import.meta.env.VITE_API_URL;
 
+import '../styles/NoteForm.css';
+
+
 const NoteForm = ({ fetchNotes }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -19,6 +22,7 @@ const NoteForm = ({ fetchNotes }) => {
 
       const result = await response.json();
       if (result.success) {
+        alert("Note added successfully!");
         setTitle("");
         setContent("");
         fetchNotes();

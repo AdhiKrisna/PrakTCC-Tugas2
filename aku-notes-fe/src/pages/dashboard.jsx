@@ -28,10 +28,11 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <div className="w-100 px-5">
+        <div className="w-100 mt-5 px-5 mb-3">
             <h1 className="text-center fw-bold">Aku Notes</h1>
-            <h5 className="text-center fw-bold">Directly Reach the Title and Content To Edit The Text </h5>
+            <p className="subHeader text-center">Directly Reach the Title and Content To Edit The Note Data </p>
             <NoteForm fetchNotes={fetchNotes} />
+            <hr></hr>
             <NoteList notes={notes} fetchNotes={fetchNotes} />
         </div>
     );
