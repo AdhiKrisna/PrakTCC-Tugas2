@@ -32,7 +32,7 @@ async function updateNotes(req, res){
             where: {
                 id: req.params.id
             },
-            // returning: true
+            // returning: true // jika  menggunakan postgres
         });
         res.status(200).json({
             note: note,
