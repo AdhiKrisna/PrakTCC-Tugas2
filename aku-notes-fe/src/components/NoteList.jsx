@@ -75,9 +75,9 @@ function NoteList({ notes, fetchNotes }) {
                                 >
                                     {note.content}
                                 </p>
-                                <div className="d-flex justify-content-between">
+                                <div className="d-flex gap-3">
                                     <button className="btn actionButton" onClick={() => updateNote(note.id)}>Update</button>
-                                        <button className="btn actionButton" onClick={() => deleteNote(note.id)}>Delete</button>
+                                        <button className="btn btn-outline-danger deleteButton" onClick={() => deleteNote(note.id)}>Delete</button>
                                     </div>
                             </div>
                         </div>
