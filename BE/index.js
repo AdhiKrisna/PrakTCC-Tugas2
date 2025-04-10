@@ -10,7 +10,7 @@ app.use(NoteRoute)
 
 //
 app.get("/", (req, res) => {
-    res.send("Hello World 123 CI/CD Here")
+    res.send("Hello World 123 CI/CD Heree")
 })
 
 
