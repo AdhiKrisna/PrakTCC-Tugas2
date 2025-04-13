@@ -1,8 +1,13 @@
+runtime: nodejs18
+instance_class: F1
+
 handlers:
-  - url: /
+  - url: /.*
     static_files: dist/index.html
     upload: dist/index.html
+    secure: always
 
   - url: /(.*)
     static_files: dist/\1
     upload: dist/(.*)
+    secure: always
