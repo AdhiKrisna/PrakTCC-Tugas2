@@ -6,6 +6,3 @@ handlers:
   - url: /(.*)
     static_files: dist/\1
     upload: dist/(.*)
-
-  - url: /.*
-    script: auto
