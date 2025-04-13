@@ -1,20 +1,10 @@
 steps:
-  - name: "node"
-    entrypoint: "npm"
-    args: ["install"]
-    dir: "aku-notes-fe"
-
-  - name: "node"
-    entrypoint: "npm"
-    args: ["run", "build"]
-    dir: "aku-notes-fe"
-
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: "bash"
     args:
       [
         "-c",
-        "cd aku-notes-fe && gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy --quiet"
+        "cd aku-notes-fe && gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy",
       ]
 
 timeout: "1600s"
