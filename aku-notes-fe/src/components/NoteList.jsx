@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef} from "react";
 
-const API_URL = 'https://tcc-be-task6-582441420598.us-central1.run.app';
+// const API_URL = import.meta.env.VITE_API_URL;
+const API_URL =  'https://tcc-be-task6-582441420598.us-central1.run.app';
 
 import '../styles/NoteList.css';
 
