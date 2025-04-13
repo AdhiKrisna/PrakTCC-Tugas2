@@ -1,21 +1,21 @@
 steps:
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/$PROJECT_ID/tcc-fe-task6", "."]
+  - name: "node"
+    entrypoint: npm
+    args: ["install"]
     dir: "aku-notes-fe"
 
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/$PROJECT_ID/tcc-fe-task6"]
+  - name: "node"
+    entrypoint: npm
+    args: ["run", "build"]
+    dir: "aku-notes-fe"
 
-  - name: "gcr.io/cloud-builders/gcloud"
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: bash
     args:
-      [
-        "run", "deploy", "tcc-fe-task6",
-        "--image", "gcr.io/$PROJECT_ID/tcc-fe-task6",
-        "--port", "8080",
-        "--region", "us-central1",
-        "--platform", "managed",
-        "--allow-unauthenticated"
-      ]
+      - -c
+      - |
+        cd aku-notes-fe && gcloud app deploy --quiet
 
+timeout: "1600s"
 options:
   logging: CLOUD_LOGGING_ONLY
