@@ -1,13 +1,12 @@
-runtime: nodejs18
-instance_class: F1
+steps:
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "bash"
+    args:
+      [
+        "-c",
+        "gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy",
+      ]
+timeout: "1600s"
 
-handlers:
-  - url: /(.*\.(css|js|png|jpg|ico|json|svg|woff2?))
-    static_files: dist/\1
-    upload: dist/(.*\.(css|js|png|jpg|ico|json|svg|woff2?))
-    secure: always
-
-  - url: /.*
-    static_files: dist/index.html
-    upload: dist/index.html
-    secure: always
+options:
+  logging: CLOUD_LOGGING_ONLY
